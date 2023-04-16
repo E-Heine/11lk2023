@@ -28,6 +28,7 @@ public class Graph implements GraphInterface
         g.neueKante("Mainz", "Ingelheim", 17, 17);
         */
         g.lade();
+        g.neueEcke("Frankfurt");
         g.zeige();
         //g.speichere();
 
