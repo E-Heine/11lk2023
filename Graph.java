@@ -17,7 +17,7 @@ public class Graph implements GraphInterface
      */
     public static void main() {
         Graph g = new Graph();
-        
+
         /*
         g.neueEcke("Mainz");
         g.neueEcke("Wiesbaden");
@@ -26,7 +26,7 @@ public class Graph implements GraphInterface
         g.neueKante("Mainz", "Wiesbaden", 12, 12);
         g.neueKante("Mainz", "Oppenheim", 22, 22);
         g.neueKante("Mainz", "Ingelheim", 17, 17);
-        */
+         */
         g.lade();
         g.neueEcke("Frankfurt");
         g.zeige();
@@ -87,8 +87,11 @@ public class Graph implements GraphInterface
      */
     public void neueEcke(String label)
     {
-        Ecke e = new Ecke(label);
-        ecken.put(label, e);
+        if (ecken.containsKey(label)) throw new Error("cannot allow duplicate keys in Ecken");
+        else {
+            Ecke e = new Ecke(label);
+            ecken.put(label, e);
+        }
     }
 
     /**
@@ -169,7 +172,6 @@ public class Graph implements GraphInterface
         }
 
     }
-
 
 
     /**
